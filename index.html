@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>porti — quiet reflections</title>
+  <style>
+    :root {
+      --bg: #0d1117;
+      --card: #161b22;
+      --text: #c9d1d9;
+      --accent: #58a6ff;
+      --accent-dark: #388bfd;
+      --gray: #8b949e;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    header {
+      text-align: center;
+      padding: 120px 0 80px;
+    }
+
+    .logo {
+      width: 110px;
+      height: 110px;
+      margin: 0 auto 24px;
+      background: rgba(88, 166, 255, 0.08);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid var(--accent);
+      box-shadow: 0 0 40px rgba(88, 166, 255, 0.12);
+    }
+
+    .logo img {
+      width: 80%;
+      height: 80%;
+      border-radius: 50%;
+    }
+
+    h1 {
+      font-size: 3.6rem;
+      font-weight: 300;
+      letter-spacing: -1.5px;
+      margin-bottom: 16px;
+      color: white;
+    }
+
+    .tagline {
+      font-size: 1.35rem;
+      color: var(--gray);
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    nav {
+      margin: 48px 0;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      background: var(--bg);
+      z-index: 10;
+      padding: 16px 0;
+    }
+
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      margin: 0 24px;
+      font-size: 1.1rem;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    section {
+      padding: 90px 0;
+      border-bottom: 1px solid #21262d;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    h2 {
+      font-size: 2.4rem;
+      margin-bottom: 40px;
+      color: var(--accent);
+      font-weight: 400;
+      text-align: center;
+      position: relative;
+    }
+
+    h2::after {
+      content: '';
+      width: 50px;
+      height: 2px;
+      background: var(--accent);
+      position: absolute;
+      bottom: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    p,
+    li {
+      font-size: 1.16rem;
+      margin-bottom: 1.6em;
+      color: #d1d5da;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    ul li {
+      margin-bottom: 1.3em;
+      position: relative;
+      padding-left: 32px;
+    }
+
+    ul li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 1.8rem;
+      line-height: 0.8;
+    }
+
+    .hero-img {
+      max-width: 100%;
+      border-radius: 12px;
+      margin: 48px auto 0;
+      display: block;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1s ease-out, transform 1s ease-out;
+    }
+
+    .hero-img.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .connect {
+      text-align: center;
+    }
+
+    .connect a {
+      display: inline-block;
+      background: var(--accent);
+      color: #0d1117;
+      padding: 14px 36px;
+      border-radius: 50px;
+      font-size: 1.15rem;
+      font-weight: 600;
+      text-decoration: none;
+      margin: 12px;
+      transition: all 0.3s;
+    }
+
+    .connect a:hover {
+      background: var(--accent-dark);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(88, 166, 255, 0.25);
+    }
+
+    footer {
+      text-align: center;
+      padding: 80px 0 50px;
+      color: var(--gray);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.8rem;
+      }
+
+      h2 {
+        font-size: 2rem;
+      }
+
+      header {
+        padding: 90px 0 60px;
+      }
+
+      nav a {
+        margin: 0 14px;
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="container">
+      <div class="logo">
+        <img
+          src="https://www.shutterstock.com/shutterstock/photos/2646095353/display_1500/stock-photo-glowing-blue-neon-letter-p-within-a-circular-frame-illuminated-on-a-black-background-conceptual-2646095353.jpg"
+          alt="porti logo">
+      </div>
+      <h1>porti</h1>
+      <div class="tagline">quiet thoughts from rainy evenings and long walks through old streets</div>
+
+      <img src="https://i.ytimg.com/vi/yYpXI9hqg0g/maxresdefault.jpg" alt="Rainy evening view from a cozy window"
+        class="hero-img" id="hero-img">
+    </div>
+  </header>
+
+  <nav>
+    <a href="#thoughts">Thoughts</a>
+    <a href="#lessons">Lessons</a>
+    <a href="#moments">Moments</a>
+    <a href="#connect">Connect</a>
+  </nav>
+
+  <div class="container">
+
+    <section id="thoughts" class="fade-section">
+      <h2>Current reflections</h2>
+      <p>There's something about the way rain taps on old windows that makes everything feel slower, clearer. Cities
+        here carry centuries in their stones — you walk the same paths as people who wondered the same things long
+        before.</p>
+      <p>Most days I just try to listen more than speak, to notice the small shifts in light or mood. Life isn't loud
+        revelations; it's these quiet accumulations.</p>
+    </section>
+
+    <section id="lessons" class="fade-section">
+      <h2>What time has shown me</h2>
+      <ul>
+        <li>Small daily rituals outlast grand intentions.</li>
+        <li>Understanding someone's silence often says more than their words.</li>
+        <li>Time spent alone isn't empty — it's where clarity grows.</li>
+        <li>Being present matters more than being perfect.</li>
+        <li>Kindness without expectation returns in unexpected ways.</li>
+        <li>Rest is not weakness; it's how depth is built.</li>
+      </ul>
+    </section>
+
+    <section id="moments" class="fade-section">
+      <h2>Moments that stay</h2>
+      <ul>
+        <li>Early morning light filtering through half-closed shutters</li>
+        <li>The smell of coffee and wet leaves after rain</li>
+        <li>Long conversations that drift until dawn</li>
+        <li>Pages of a book that feel like company</li>
+        <li>Walking empty streets when the city is still asleep</li>
+      </ul>
+
+      <img
+        src="https://thumbs.dreamstime.com/b/warm-inviting-home-office-study-setup-perfect-cozy-evening-work-study-relaxation-scene-features-laptop-397387066.jpg"
+        alt="Cozy desk with notebook and coffee at night" class="hero-img" id="desk-img">
+    </section>
+
+    <section id="connect" class="connect fade-section">
+      <h2>Share a thought</h2>
+      <p>If these words resonate, or if you have your own quiet observations — I'd like to hear them.</p>
+      <a href="mailto:umarjimoh205@gmail.com?subject=Thought from porti site">Email me</a>
+      <a href="https://x.com/yourusername" target="_blank">Message on X</a>
+    </section>
+
+  </div>
+
+  <footer>
+    <p>© 2026 porti • Made with evening coffee and open windows • <a href="#" style="color: var(--accent);">Back to
+        top</a></p>
+  </footer>
+
+  <script>
+    // Subtle fade-in on scroll using IntersectionObserver
+    const fadeElements = document.querySelectorAll('.fade-section, .hero-img');
+
+    const observerOptions = {
+      threshold: 0.1,          // Trigger when 10% of element is visible
+      rootMargin: '0px 0px -50px 0px'  // Slight delay for smoother feel
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          // Optional: stop observing once shown (better performance)
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    fadeElements.forEach(el => observer.observe(el));
+  </script>
+
+</body>
+
+</html>
